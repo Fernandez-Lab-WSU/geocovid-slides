@@ -1,0 +1,68 @@
+---
+title: 'GeoCovid Buenos Aires'
+author: 
+  - name: "Florencia D'Andrea, Ph.D."
+    affiliation: "Research Software Developer / Data Analyst"
+institute: "Dr. Fernandez Lab - Washington State University"
+title-slide-attributes:
+  data-background-image: img/first-slide.png
+  data-background-size: contain
+  data-background-opacity: "0.5"
+filters:
+   - roughnotation
+format:
+  revealjs:
+    logo: img/wsu-logo.png
+    incremental: true  # bullets one by one 
+    smaller: true
+    scrollable: true
+    theme: custom.scss
+    slide-number: true
+    chalkboard: true
+---
+
+## Welcome!
+
+[https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html](https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html)
+  
+ 
+<br>  
+<br>  
+
+::: {.small-text}
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+**Title slide illustration**: The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3695300
+:::
+
+
+
+:::footer
+Click here! I can be a link!
+:::
+
+## Dr. Fernandez lab
+
+
+## Project overview
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## `quadkeyr`
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Website
+
+
+## App
+
+
+## Thank you!
