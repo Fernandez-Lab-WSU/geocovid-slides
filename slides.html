@@ -12,8 +12,8 @@
 <script src="slides_files/libs/quarto-contrib/roughnotation-init-1.0.0/rough.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
-  <meta name="author" content="Florencia D’Andrea, Ph.D.">
-  <title>GeoCovid Buenos Aires</title>
+  <meta name="author" content="Eco-epidemiology of Zoonotic Diseases Lab">
+  <title>Projecting Human Mobility and Disease Data to Support Decision-Making</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,19 +329,19 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="img/first-slide.png" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">GeoCovid Buenos Aires</h1>
+<section id="title-slide" data-background-image="img/first_slide.png" data-background-opacity="0.8" data-background-position="left" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Projecting Human Mobility and Disease Data to Support Decision-Making</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Florencia D’Andrea, Ph.D. 
+Eco-epidemiology of Zoonotic Diseases Lab 
 </div>
         <p class="quarto-title-affiliation">
-            Research Software Developer / Data Analyst
+            Paul Allen School of Medicine | Washington State University
           </p>
         <p class="quarto-title-affiliation">
-            Dr.&nbsp;Fernandez Lab - Washington State University
+            Presented by Dr.&nbsp;Florencia D’Andrea
           </p>
     </div>
 </div>
@@ -349,42 +349,271 @@ Florencia D’Andrea, Ph.D.
 </section>
 <section id="welcome" class="slide level2">
 <h2>Welcome!</h2>
-<p><a href="https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html">https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html</a></p>
+<p>Slides: <a href="https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html">https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html</a></p>
 <p><br><br>
 <br></p>
 <div class="small-text">
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-<p><strong>Title slide illustration</strong>: The Turing Way Community, &amp; Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3695300</p>
-</div>
-<div class="footer">
-<p>Click here! I can be a link!</p>
 </div>
 </section>
-<section id="dr.-fernandez-lab" class="slide level2">
-<h2>Dr.&nbsp;Fernandez lab</h2>
+<section id="roadmap" class="slide level2" data-background-color="#E5E4E2">
+<h2>Roadmap</h2>
+<p>Why are we doing this? <em>Introduction</em></p>
+<p>Can you see how people move in the city? <em>R package <code>quadkey</code></em></p>
+<p>Can COVID-19 be related with movement in the city? - <em>GeoCovid app</em></p>
+<p>What is important when developing research software? - WebPage</p>
+<p>Reflection Next steps</p>
 </section>
-<section id="project-overview" class="slide level2">
-<h2>Project overview</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
+<section id="eco-epidemiology-of-zoonotic-diseases-lab" class="slide level2">
+<h2>Eco-epidemiology of Zoonotic Diseases Lab</h2>
+<h4 id="washington-state-university">Washington State University</h4>
+<div class="columns">
+<div id="vcenter" class="column" style="width:50%;">
+<p>System thinking approach to integrate the human and ecological components that determines the emergence and persistence of zoonotic diseases.</p>
+</div><div id="vcenter" class="column" style="width:50%;">
+<p><img data-src="img/puzzle.jpg"></p>
+</div>
+</div>
+</section>
+<section id="eco-epidemiology-of-zoonotic-diseases-lab-1" class="slide level2">
+<h2>Eco-epidemiology of Zoonotic Diseases Lab</h2>
+<h4 id="washington-state-university-1">Washington State University</h4>
+<p>🐦 <strong>GitHub</strong></p>
+<p><a href="https://github.com/Fernandez-Lab-WSU">https://github.com/Fernandez-Lab-WSU</a><br></p>
+<p>🌐 <strong>Web</strong></p>
+<p><a href="https://labs.wsu.edu/eco-epi-lab/">https://labs.wsu.edu/eco-epi-lab/</a></p>
+</section>
+<section id="covid-19" class="slide level2">
+<h2>COVID-19</h2>
+<h4 id="human-behavioral-component-starts-being-recognized">Human behavioral component starts being recognized</h4>
 <ul>
-<li class="fragment">Content authored with markdown</li>
-<li class="fragment">Output from executable code</li>
+<li class="fragment"><p>Map how <strong>human mobility changes in space</strong> depending on the decisions that were made and how that correlated with the cases.</p></li>
+<li class="fragment"><p>Project with researchers from Argentina -&gt; Stricter quarantine</p></li>
 </ul>
 </section>
-<section id="quadkeyr" class="slide level2">
-<h2><code>quadkeyr</code></h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="covid-19-1" class="slide level2">
+<h2>COVID-19</h2>
+<h4 id="human-behavioral-component-starts-being-recognized-1">Human behavioral component starts being recognized</h4>
+<p><strong>Social, Preventive, and Obligatory isolation established by the Argentine government</strong></p>
+<ul>
+<li class="fragment">Phase 1: Strict isolation.</li>
+<li class="fragment">Phase 2: Managed isolation.</li>
+<li class="fragment">Phase 3: Isolation by geographic segmentation.</li>
+<li class="fragment">Phase 4: Isolation with progressive reopening.</li>
+<li class="fragment">Phase 5: Last phase search to re-establish new normality.</li>
+</ul>
+<div class="footer">
+<p><a href="https://doi.org/10.1017/%20dmp.2021.90.">Ramírez ML, Martinez SM, Bessone CV, Allemandi DA, Quinteros DA. COVID-19: Epidemiological situation of Argentina and its neighbor countries after three months of pandemic. Disaster Med Public Health Prep.</a></p>
+</div>
+</section>
+<section id="meta---data4good" class="slide level2">
+<h2>Meta - Data4Good</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li class="fragment"><p>Location of Meta/Facebook users</p>
+<ul>
+<li class="fragment">Mobile devices with the Facebook app installed</li>
+<li class="fragment"><strong>Lat and Long at a given time</strong>.</li>
+</ul></li>
+<li class="fragment"><p>Measures applied to the data to ensure privacy and anonymity.</p></li>
+<li class="fragment"><p>The data is available to researchers by application to the Facebook Data for Good Partner Program</p></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="img/metalogo.png"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system">Bing Maps Tile System</a></p>
+</div>
+</section>
+<section id="meta---data4good-1" class="slide level2">
+<h2>Meta - Data4Good</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>Daily data - 8hs time period Buenos Aires province (UTC-3)</p>
+<ul>
+<li class="fragment">0hs - 8hs.</li>
+<li class="fragment">8hs - 16hs.</li>
+<li class="fragment">16hs - 0hs.</li>
+</ul></li>
+<li class="fragment"><p>Mapped using a Bing tile architecture</p>
+<ul>
+<li class="fragment">Assigning users to individual tiles</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/tiles.jpg"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://dataforgood.facebook.com/"><code>data4Good</code> WebPage</a></p>
+</div>
+</section>
+<section id="goal" class="slide level2">
+<h2>Goal</h2>
+<h4 id="particular-interest-in-the-spatial-dynamics-of-data">Particular interest in the spatial dynamics of data</h4>
+<ul>
+<li class="fragment"><p>Fundamental tool to map risk and monitor how decision making affects the distribution of cases in a community or city.</p></li>
+<li class="fragment"><p>Quick overview to monitor decisions quasi-real time</p></li>
+</ul>
+</section>
+<section id="step-1" class="slide level2">
+<h2>Step 1</h2>
+</section>
+<section id="from-quadkeys-to-raster-images" class="slide level2">
+<h2>From QuadKeys to raster images</h2>
+<p>QuadKeys represent a location on a map by encoding its hierarchical spatial position as a sequence of characters.</p>
+<p>🔎📄</p>
+
+<img data-src="img/quadkey_to_raster.png" class="r-stretch"></section>
+<section id="step-1-1" class="slide level2">
+<h2>Step 1</h2>
+</section>
+<section id="from-quadkeys-to-raster-images-1" class="slide level2">
+<h2>From QuadKeys to raster images</h2>
+<p>The tiles can have different sizes, producing maps with more or less level of detail.</p>
+
+<img data-src="img/bing_quadkeys.jpg" class="r-stretch"></section>
+<section id="step-1-2" class="slide level2">
+<h2>Step 1</h2>
+</section>
+<section id="from-quadkeys-to-raster-images-2" class="slide level2">
+<h2>From QuadKeys to raster images</h2>
+<p>The conversion from QuadKey to raster involve several steps</p>
+<p><img data-src="img/workflow_facebook.png"> :::footer Image source: <code>quadkeyr</code> documentation :::</p>
+</section>
+<section id="why-to-create-an-r-package" class="slide level2">
+<h2>Why to create an R package</h2>
+<h4 id="when-is-a-good-idea-to-create-a-software-package-as-part-of-a-research">When is a good idea to create a software package as part of a research?</h4>
+<ul>
+<li class="fragment">Easier to reuse the functions.</li>
+<li class="fragment">Better code quality (i.e.&nbsp;tests, documentation)</li>
+<li class="fragment">Ensures computational reproducibility.</li>
+</ul>
+</section>
+<section id="ropensci-peer-review" class="slide level2">
+<h2>rOpenSci peer-review</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>Scientific package review process</strong></p>
+<ul>
+<li class="fragment"><a href="https://ropensci.org/software-review/">rOpenSci webpage</a>
+<ul>
+<li class="fragment"><a href="https://devguide.ropensci.org/preface.html">rOpenSci Packages: Development, Maintenance, and Peer Review</a></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img data-src="img/ropensci.svg"></p>
 </div>
 </div>
 </section>
-<section id="website" class="slide level2">
-<h2>Website</h2>
+<section id="section" class="slide level2">
+<h2></h2>
+
+<img data-src="img/quadkeyr_joss.png" class="r-stretch"><div class="footer">
+<p>https://github.com/ropensci/quadkeyr https://joss.theoj.org/papers/10.21105/joss.06500</p>
+</div>
 </section>
-<section id="app" class="slide level2">
-<h2>App</h2>
+<section id="variable" class="slide level2">
+<h2>Variable</h2>
+<p><code>percent_change</code></p>
+</section>
+<section id="r-package-quadkeyr" class="slide level2">
+<h2>R package: <code>quadkeyr</code></h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>D’Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identified datasets (Microsoft’s Bing Maps Tile System) into raster images and analyzing Meta (Facebook) Mobility Data.. R package version 0.1.0, https://github.com/ropensci/quadkeyr, https://docs.ropensci.org/quadkeyr/.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="img/logo.png"></p>
+</div>
+</div>
+<div class="footer">
+<p><a href="https://docs.ropensci.org/quadkeyr/index.html"><code>quadkey</code> documentation</a></p>
+</div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<p>We were not going to see the consequences of decisions immediately. Non-permitted behaviors would be possible to detect</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p>We managed to generate the raster to visualize citizen mobility on a map</p>
+</section>
+<section id="geocovidar" class="slide level2">
+<h2>GeoCovidAR</h2>
+<p>Integrate city mobility information with daily reported covid cases</p>
+</section>
+<section id="tab-1" class="slide level2">
+<h2>Tab 1</h2>
+<p>General exploration</p>
+</section>
+<section id="tab-2" class="slide level2">
+<h2>Tab 2</h2>
+<p>Compare departments</p>
+<p>You can download a report</p>
+</section>
+<section id="tab-3" class="slide level2">
+<h2>Tab 3</h2>
+<p>Generalidades</p>
+</section>
+<section id="conclusions" class="slide level2">
+<h2>Conclusions</h2>
+<p>An app was generated to view covid19 data</p>
+<p>Modulos</p>
+<p>Possible to reuse in other diseases with ease For example DENGUE</p>
+</section>
+<section id="where-is-the-project-data" class="slide level2">
+<h2>Where is the project data?</h2>
+<h4 id="website-geocovid-buenos-aires">Website: GeoCovid Buenos Aires</h4>
+<p>3 datasets</p>
+<p>COVID-19 rasters</p>
+</section>
+<section id="overview-del-proyect" class="slide level2">
+<h2>Overview del proyect</h2>
+<p>R-Shiny app GeocovidApp <code>quadkeyr</code> R package website PostgreSQL database</p>
+</section>
+<section id="who-i-am" class="slide level2">
+<h2>Who I am?</h2>
+</section>
+<section id="contact" class="slide level2">
+<h2>Contact</h2>
+<div class="columns">
+<div id="vcenter" class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://res.cloudinary.com/flor/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1683580772/IMG_20220607_130734112_mu4fpd.jpg" width="250"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div id="vcenter" class="column" style="width:60%;">
+<p>🐦 <strong>Twitter</strong><br>
+<a href="http://twitter.com/cantoflor_87"><span class="citation" data-cites="cantoflor_87">@cantoflor_87</span></a><br></p>
+<p>📢 <strong>Mastodon</strong></p>
+<p><a href="https://techhub.social/@florencia"><span class="citation" data-cites="florencia">@florencia</span><span class="citation" data-cites="techhub.social">@techhub.social</span></a></p>
+<p>🌐 <strong>Web</strong></p>
+<p><a href="https://florenciadandrea.com">https://florenciadandrea.com</a></p>
+</div>
+</div>
+</section>
+<section id="conclusion-1" class="slide level2">
+<h2>Conclusion</h2>
+<ul>
+<li class="fragment">Monitoring system</li>
+<li class="fragment">Integration ecological components (hosts there are distribution and contacts) with the complexity of the human behavior. This determines the spatial distribution of cases and is essential to understand the dynamics of transmission.</li>
+<li class="fragment">Flexible tool daptable to future scenarios</li>
+</ul>
+</section>
+<section id="funding" class="slide level2">
+<h2>Funding</h2>
+
+<img data-src="img/foresite.jpg" class="r-stretch"><p><strong>CDC’s Center for Forecasting and Outbreak Analytics.</strong> This project was made possible by cooperative agreement CDC-RFA-FT-23-0069 (grant # NU38FT000009-01-00) from the CDC’s Center for Forecasting and Outbreak Analytics. Its contents are solely the responsibility of the authors and do not necessarily represent the official views of the Centers for Disease Control and Prevention.</p>
+<p><strong>MIDAS-NIH</strong> COVID-19 urgent grant program.</p>
+<p>Paul G. Allen School for Global Health, <strong>Washington State University</strong>.</p>
 </section>
 <section id="thank-you" class="slide level2">
 <h2>Thank you!</h2>

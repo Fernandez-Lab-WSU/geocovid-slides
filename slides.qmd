@@ -1,13 +1,14 @@
 ---
-title: 'GeoCovid Buenos Aires'
+title: 'Projecting Human Mobility and Disease Data to Support Decision-Making'
 author: 
-  - name: "Florencia D'Andrea, Ph.D."
-    affiliation: "Research Software Developer / Data Analyst"
-institute: "Dr. Fernandez Lab - Washington State University"
+  - name: "Eco-epidemiology of Zoonotic Diseases Lab"
+    affiliation: "Paul Allen School of Medicine | Washington State University"
+institute: "Presented by Dr. Florencia D'Andrea"
 title-slide-attributes:
-  data-background-image: img/first-slide.png
+  data-background-image: img/first_slide.png
   data-background-size: contain
-  data-background-opacity: "0.5"
+  data-background-opacity: "0.8"
+  data-background-position: left
 filters:
    - roughnotation
 format:
@@ -23,6 +24,7 @@ format:
 
 ## Welcome!
 
+Slides: 
 [https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html](https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html)
   
  
@@ -31,38 +33,345 @@ format:
 
 ::: {.small-text}
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-
-**Title slide illustration**: The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes. Zenodo. http://doi.org/10.5281/zenodo.3695300
 :::
 
+## Roadmap {background-color="#E5E4E2"}
 
+Why are we doing this? *Introduction*
+
+Can you see how people move in the city? *R package `quadkey`* 
+
+Can COVID-19 be related with movement in the city? - *GeoCovid app*
+
+What is important when developing research software? - WebPage
+
+Reflection
+Next steps
+
+## Eco-epidemiology of Zoonotic Diseases Lab
+#### Washington State University 
+
+:::: {.columns}
+:::{.column width="50%" #vcenter}
+
+System thinking approach to integrate the human and ecological components 
+that determines the emergence and persistence of zoonotic diseases.
+:::
+
+:::{.column width="50%" #vcenter}
+
+![](img/puzzle.jpg)
+:::
+:::: 
+
+## Eco-epidemiology of Zoonotic Diseases Lab
+#### Washington State University 
+
+  
+🐦 **GitHub**   
+
+[https://github.com/Fernandez-Lab-WSU](https://github.com/Fernandez-Lab-WSU)<br>
+
+
+🌐 **Web** 
+
+[https://labs.wsu.edu/eco-epi-lab/](https://labs.wsu.edu/eco-epi-lab/)
+
+
+## COVID-19
+#### Human behavioral component starts being recognized
+
+
+- Map how **human mobility changes in space** depending on
+the decisions that were made and how that correlated with the cases.
+
+
+- Project with researchers from Argentina -> Stricter quarantine
+
+## COVID-19
+#### Human behavioral component starts being recognized
+
+**Social, Preventive, and Obligatory isolation established by the Argentine government**
+
+- Phase 1: Strict isolation. 
+- Phase 2: Managed isolation. 
+- Phase 3: Isolation by geographic segmentation. 
+- Phase 4: Isolation with progressive reopening. 
+- Phase 5: Last phase search to re-establish new normality. 
 
 :::footer
-Click here! I can be a link!
+[Ramírez ML, Martinez SM,
+Bessone CV, Allemandi DA, Quinteros DA.
+COVID-19: Epidemiological situation of
+Argentina and its neighbor countries after three
+months of pandemic. Disaster Med Public
+Health Prep.](https://doi.org/10.1017/
+dmp.2021.90.)
 :::
 
-## Dr. Fernandez lab
 
 
-## Project overview
+## Meta - Data4Good
 
-When you click the **Render** button a document will be generated that includes:
+::::{.columns}
 
--   Content authored with markdown
--   Output from executable code
+:::{.column width="70%"}
+- Location of Meta/Facebook users
+   - Mobile devices with the Facebook app installed 
+   - **Lat and Long at a given time**.
 
-## `quadkeyr`
+- Measures applied to the data to ensure privacy and anonymity.
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+- The data is available to researchers by application to the Facebook
+Data for Good Partner Program
 
-```{r}
-1 + 1
+ 
+:::
+
+:::{.column width="30%"}
+
+![](img/metalogo.png)
+
+:::
+:::
+
+:::footer
+[Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system)
+:::
+
+## Meta - Data4Good
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+- Daily data - 8hs time period
+Buenos Aires province (UTC-3)
+
+  - 0hs - 8hs. 
+  - 8hs - 16hs. 
+  - 16hs - 0hs. 
+
+- Mapped using a Bing tile architecture
+  - Assigning users to individual tiles
+
+:::
+
+:::{.column width="50%"}
+
+![](img/tiles.jpg)
+
+:::
+:::
+
+:::footer
+[`data4Good` WebPage](https://dataforgood.facebook.com/)
+:::
+
+
+
+## Objectives
+#### Spatial dynamics of data
+
+
+* Fundamental tool to map risk and monitor how decision making
+affects the distribution of cases in a community or city.
+
+* Quick overview to monitor decisions   
+
+
+## Step 1
+#### From QuadKeys to raster images
+
+**QuadKeys** represent a location on a map by encoding its hierarchical 
+spatial position as a sequence of characters.
+
+🔎📄
+
+![](img/quadkey_to_raster.png)
+
+## Step 1
+#### From QuadKeys to raster images
+
+The tiles can have different sizes,
+producing maps with more or less level of detail.
+
+![](img/bing_quadkeys.jpg)
+
+## Step 1
+#### From QuadKeys to raster images
+
+The conversion from QuadKey to raster involve several steps
+
+![](img/workflow_facebook.png)
+:::footer
+
+Image source: `quadkeyr` documentation
+
+::: 
+
+## Why to create an R package
+#### When is a good idea to create a software package as part of a research?
+- Makes easier to reuse the functions.
+- Better code quality (i.e. tests, documentation)
+- Ensures computational reproducibility.
+
+## rOpenSci peer-review
+
+::::{.columns}
+
+:::{.column width="70%"}
+**Scientific package review process**
+  
+- [rOpenSci webpage](https://ropensci.org/software-review/)
+  - [rOpenSci Packages: Development, Maintenance, and Peer Review](https://devguide.ropensci.org/preface.html)
+
+:::
+
+:::{.column width="30%"}
+
+
+![](img/ropensci.svg)
+
+:::
+::::
+
+
+## 
+
+![](img/quadkeyr_joss.png)
+
+::: footer
+https://github.com/ropensci/quadkeyr https://joss.theoj.org/papers/10.21105/joss.06500
+:::
+
+## Variable
+
+`percent_change`
+
+## R package: `quadkeyr`
+
+
+::::{.columns}
+
+:::{.column width="70%"}
+
+D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identified datasets (Microsoft's Bing Maps Tile System) into raster images and analyzing Meta (Facebook) Mobility Data.. R package version 0.1.0, https://github.com/ropensci/quadkeyr, https://docs.ropensci.org/quadkeyr/. 
+
+:::
+
+:::{.column width="30%"}
+
+![](img/logo.png)
+
+:::
+:::
+
+:::footer
+[`quadkey` documentation](https://docs.ropensci.org/quadkeyr/index.html)
+:::
+
+## Example 
+
+- We were not going to see the consequences of decisions immediately.
+- Non-permitted behaviors would be possible to detect. 
+
+## Conclusion
+
+We managed to generate the raster to visualize citizen mobility on a map
+
+## GeoCovidAR
+
+Integrate city mobility information with daily reported covid cases
+
+## Tab 1
+
+General exploration
+
+## Tab 2
+
+Compare departments
+
+You can download a report
+
+## Tab 3
+
+Generalidades
+
+## Conclusions
+
+- GeoCovidAR App integrates COVID-19 and Facebook Mobility Data
+
+## Where is the project data?
+#### Website: GeoCovid Buenos Aires
+
+3 datasets 
+
+COVID-19
+rasters
+
+## Overview del proyect
+
+R-Shiny app GeocovidApp
+`quadkeyr` R package
+website
+PostgreSQL database
+
+## Who I am?
+
+#### Contact
+
+:::: {.columns}
+:::{.column width="40%" #vcenter}
+
+```{r foto, echo = FALSE, out.width=250, fig.align='center'}
+knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1683580772/IMG_20220607_130734112_mu4fpd.jpg")
 ```
+:::
 
-## Website
+:::{.column width="60%" #vcenter}
+🐦 **Twitter**   
+[@cantoflor_87](http://twitter.com/cantoflor_87)<br>
 
+📢 **Mastodon** 
 
-## App
+[@florencia@techhub.social](https://techhub.social/@florencia)
+
+🌐 **LinkedIn** 
+
+[https://www.linkedin.com/in/florenciadandrea/](https://www.linkedin.com/in/florenciadandrea/)
+
+:::
+:::: 
+
+## Conclusion
+
+- Monitoring system
+- Integration ecological components
+(hosts there are distribution and contacts) with the complexity of the
+human behavior. 
+This determines the spatial distribution of cases and is essential
+to understand the dynamics of transmission.
+- Flexible tool daptable to future scenarios
+
+## Funding
+
+![](img/foresite.jpg)
+
+**CDC's Center for Forecasting and Outbreak Analytics.** 
+This project was made possible by cooperative agreement CDC-RFA-FT-23-0069 
+(grant # NU38FT000009-01-00) from the CDC's Center for 
+Forecasting and Outbreak Analytics.
+Its contents are solely the responsibility of the authors 
+and do not necessarily represent the official views of
+the Centers for Disease Control and Prevention.
+
+**MIDAS-NIH**  COVID-19 urgent grant program.
+
+Paul G. Allen School for Global Health, **Washington State University**.
+
 
 
 ## Thank you!
+
+
