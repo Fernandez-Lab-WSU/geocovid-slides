@@ -1,10 +1,5 @@
 /*-- scss:defaults --*/
 
-@font-face {
-  font-family: "Khula";
-  src: url("https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap");
-}
-
 // fonts
 
 $font-family-sans-serif: 'Khula', sans-serif !default;
@@ -12,9 +7,10 @@ $font-family-monospace: "Fira Mono", monospace !default;
 $presentation-title-slide-text-align: "left";
 $code-block-font-size: 0.5em;
 $code-color: #5f5f5f;
-$presentation-font-smaller: 10px !default;
+$presentation-font-smaller: 20px !default;
 $presentation-line-height: 1.5em !default;
-$font-size-root: 10px !default;
+$font-size-root: 35px !default;
+$font-weight-normal: 300;
 
 
 
@@ -29,7 +25,7 @@ $selection-bg: #FAA381 !default;
 $presentation-heading-font: 'Work Sans', sans-serif !default;
 $presentation-heading-color: #399E5A !default;
 $presentation-heading-font-weight: 300 !default;
-$presentation-h1-font-size:	0.5em !default;
+$presentation-h1-font-size:	1.5em !default;
 $presentation-h2-font-size:	1.3em !default;
 $presentation-h3-font-size:	1.2em !default;
 $presentation-h4-font-size:	1.1em !default;
@@ -52,12 +48,13 @@ $presentation-h4-font-size:	1.1em !default;
   border-left: 10px solid;
 }
 
-.reveal .footer {
-  font-size: 0.5em !important;
+.footer > p {
+  font-size: 15px !important;
 }
 
 #vcenter {
   vertical-align: middle !important;
+  text-align: justify;
 }
 
 .small-text {
@@ -107,7 +104,23 @@ $presentation-h4-font-size:	1.1em !default;
   width: 850px;
 }
 
-.p{
-   font-weight: 200 !important;
+body {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-root;
+  font-family: $font-family-sans-serif;
+}
+
+//Tuve que cambiar esto de forma manual 
+p {
+  font-size: $font-size-root;
+  font-family: $font-family-sans-serif;
+  font-weight: $font-weight-normal;
+}
+
+ul, ol {
+  font-weight: $font-weight-normal;
+  font-size: $font-size-root;
+  font-family: $font-family-sans-serif;
+  text-align: justify;
 }
 

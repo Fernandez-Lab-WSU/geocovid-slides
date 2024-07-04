@@ -35,9 +35,18 @@ Slides:
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 :::
 
-## COVID-19
+## Disclaimer ⚠️
 
-![](img/puzzle.jpg)
+
+:::: {.columns}
+:::{.column width="60%" #vcenter}
+![](img/bettersoftware.png)
+:::
+
+:::{.column width="40%" #vcenter}
+This talk is about research software development
+:::
+:::: 
 
 
 ## Eco-epidemiology of Zoonotic Diseases Lab
@@ -207,11 +216,18 @@ producing maps with more or less level of detail.
 Image source: `quadkeyr` documentation
 ::: 
 
-## Why to create an R package
-#### When is a good idea to create a software package as part of a research?
-- Makes easier to reuse the functions.
-- Better code quality (i.e. tests, documentation)
+## Why create a software package?
+
+- Makes it easier to reuse functions.
+- Improves code quality (i.g. tests, documentation). 
 - Ensures computational reproducibility.
+
+##
+
+![](img/CultureShift.jpg)
+:::footer
+
+:::
 
 ## R package: `quadkeyr`
 
@@ -258,9 +274,10 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 [`JOSS` article](https://joss.theoj.org/papers/10.21105/joss.06500)
 :::
 
-## Variable
+##
 
-`percent_change`
+![](img/recognition.png)
+
 
 
 ## Example 
@@ -268,9 +285,9 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 - We were not going to see the consequences of decisions immediately.
 - Non-permitted behaviors would be possible to detect. 
 
-## Conclusion
 
-We managed to generate the raster to visualize citizen mobility on a map
+
+# Raster images produced with `quadkeyr` allow to visualize citizen mobility on a map {background-color="#E5E4E2"}
 
 # Dashboard {background-color="#E5E4E2"}
 
@@ -278,19 +295,20 @@ We managed to generate the raster to visualize citizen mobility on a map
 
 Integrate city mobility information with daily reported COVID-19 cases
 
-## Tab 1
+## Tab 1: General exploration
 
-General exploration
+![](img/tab1.png)
+
+## Tab 2: Departments
+
+![](img/tab2.png)
 
 ## Tab 2
-
-Compare departments
-
 You can download a report
 
-## Tab 3
+## Tab 3: Average of 
+![](img/tab3.png)
 
-Generalidades
 
 ## Conclusions
 
@@ -330,6 +348,49 @@ Generalidades
 **Database**. 
 - PostgreSQL database. 
 
+
+
+## Conclusions
+
+The spatial distribution of cases is essential
+to understand the dynamics of transmission.
+
+- `quadkeyr` allows for converting Facebook mobility data into raster images.
+- `GeoCovidAR` enables the integration of ecological components 
+with the complexity of human behavior.
+
+
+## Conclusions
+
+ `quadkeyr` and `GeoCovidAR` are flexible tools adaptable to different scenarios
+
+![](img/dengue.png)
+:::footer
+[Complete article here!](https://www.batimes.com.ar/news/argentina/dengue-fever-cases-in-argentina-up-2153-so-far-in-2024.phtml)
+:::
+
+## Funding
+
+
+:::{layout-ncol=2}
+
+![](img/midas.jpg){width=200}
+
+![](img/wsu-logo.png){width=300}
+
+![](img/cdc.jpg){width=250}
+
+![](img/foresite.jpg){width=300}
+
+
+:::
+
+:::footer
+Its contents are solely the responsibility of the authors 
+and do not necessarily represent the official views of
+the Centers for Disease Control and Prevention.
+:::
+
 ## Who I am?
 
 #### Contact
@@ -357,40 +418,9 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 :::
 :::: 
 
-## Conclusion
-
-- Monitoring system
-- Integration ecological components
-(hosts there are distribution and contacts) with the complexity of the
-human behavior. 
-This determines the spatial distribution of cases and is essential
-to understand the dynamics of transmission.
-- Flexible tool adaptable to future scenarios
-
-## Funding
-
-
-:::{layout-ncol=2}
-
-![](img/midas.jpg){width=200}
-
-![](img/wsu-logo.png){width=300}
-
-![](img/cdc.jpg){width=250}
-
-![](img/foresite.jpg){width=300}
-
-
-:::
-
-:::footer
-grant # NU38FT000009-01-00
-Its contents are solely the responsibility of the authors 
-and do not necessarily represent the official views of
-the Centers for Disease Control and Prevention.
-:::
-
-
 # Thank you!
 
-
+:::footer
+[https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html](https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html)
+  
+:::
