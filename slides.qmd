@@ -35,18 +35,10 @@ Slides:
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 :::
 
-## Roadmap {background-color="#E5E4E2"}
+## COVID-19
 
-Why are we doing this? *Introduction*
+![](img/puzzle.jpg)
 
-Can you see how people move in the city? *R package `quadkey`* 
-
-Can COVID-19 be related with movement in the city? - *GeoCovid app*
-
-What is important when developing research software? - WebPage
-
-Reflection
-Next steps
 
 ## Eco-epidemiology of Zoonotic Diseases Lab
 #### Washington State University 
@@ -54,7 +46,7 @@ Next steps
 :::: {.columns}
 :::{.column width="50%" #vcenter}
 
-System thinking approach to integrate the human and ecological components 
+**System thinking** approach to **integrate the human and ecological** components 
 that determines the emergence and persistence of zoonotic diseases.
 :::
 
@@ -64,29 +56,31 @@ that determines the emergence and persistence of zoonotic diseases.
 :::
 :::: 
 
-## Eco-epidemiology of Zoonotic Diseases Lab
-#### Washington State University 
 
-  
-🐦 **GitHub**   
-
-[https://github.com/Fernandez-Lab-WSU](https://github.com/Fernandez-Lab-WSU)<br>
-
-
-🌐 **Web** 
-
-[https://labs.wsu.edu/eco-epi-lab/](https://labs.wsu.edu/eco-epi-lab/)
-
+:::footer
+[Lab's WebPage](https://labs.wsu.edu/eco-epi-lab/) 
+:::
 
 ## COVID-19
 #### Human behavioral component starts being recognized
 
+:::: {.columns}
 
+:::{.column width="60%" #vcenter}
 - Map how **human mobility changes in space** depending on
-the decisions that were made and how that correlated with the cases.
+the decisions that were made and how that correlated with COVID-19 cases.
 
+- 🇦🇷 Argentina ➡️ Strict quarantine
+:::
 
-- Project with researchers from Argentina -> Stricter quarantine
+:::{.column width="40%" #vcenter}
+![](img/people_subway.jpg) 
+:::
+::::
+
+:::footer
+Image Source: [Clarin newspaper](https://www.clarin.com/ciudades/dia-semana-subte-porteno-viaja-lleno_0_HJjVc0rdW.html)
+:::
 
 ## COVID-19
 #### Human behavioral component starts being recognized
@@ -110,40 +104,49 @@ dmp.2021.90.)
 :::
 
 
+## Objectives
 
-## Meta - Data4Good
+* Create a tool to map Facebook Mobility Data and monitor how decision making
+affects the distribution of COVID-19 cases in a community or city.
+
+* Quick overview to monitor decisions considering the spatial dynamics of data.   
+
+
+# Datasets {background-color="#E5E4E2"}
+
+## Facebook Mobility Data
 
 ::::{.columns}
 
-:::{.column width="70%"}
-- Location of Meta/Facebook users
+:::{.column width="70%" #vcenter}
+- Meta/Facebook users location
    - Mobile devices with the Facebook app installed 
    - **Lat and Long at a given time**.
 
 - Measures applied to the data to ensure privacy and anonymity.
 
 - The data is available to researchers by application to the Facebook
-Data for Good Partner Program
+Data4Good Partner Program
 
  
 :::
 
-:::{.column width="30%"}
+:::{.column width="30%" #vcenter}
 
 ![](img/metalogo.png)
 
 :::
-:::
+::::
 
 :::footer
 [Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system)
 :::
 
-## Meta - Data4Good
+## Facebook Mobility Data
 
 ::::{.columns}
 
-:::{.column width="50%"}
+:::{.column width="60%" #vcenter}
 
 - Daily data - 8hs time period
 Buenos Aires province (UTC-3)
@@ -157,7 +160,7 @@ Buenos Aires province (UTC-3)
 
 :::
 
-:::{.column width="50%"}
+:::{.column width="40%" #vcenter}
 
 ![](img/tiles.jpg)
 
@@ -168,46 +171,40 @@ Buenos Aires province (UTC-3)
 [`data4Good` WebPage](https://dataforgood.facebook.com/)
 :::
 
+## COVID-19 data
 
 
-## Objectives
-#### Spatial dynamics of data
+- Historical archive of COVID-19 cases
+- Public dataset
+
+:::footer
+National Directorate of Epidemiology and Health Situation Analysis
+:::
 
 
-* Fundamental tool to map risk and monitor how decision making
-affects the distribution of cases in a community or city.
 
-* Quick overview to monitor decisions   
-
-
-## Step 1
+## Facebook Mobility Data
 #### From QuadKeys to raster images
 
 **QuadKeys** represent a location on a map by encoding its hierarchical 
 spatial position as a sequence of characters.
 
-🔎📄
+![](img/quadkey_to_raster.png){fig-align="center"}
 
-![](img/quadkey_to_raster.png)
-
-## Step 1
+## Facebook Mobility Data
 #### From QuadKeys to raster images
 
-The tiles can have different sizes,
+The **tiles** can have different sizes,
 producing maps with more or less level of detail.
 
-![](img/bing_quadkeys.jpg)
+![](img/bing_quadkeys.jpg){fig-align="center"}
 
-## Step 1
+## Facebook Mobility Data
 #### From QuadKeys to raster images
+![](img/workflow_facebook.png){fig-align="center"}
 
-The conversion from QuadKey to raster involve several steps
-
-![](img/workflow_facebook.png)
 :::footer
-
 Image source: `quadkeyr` documentation
-
 ::: 
 
 ## Why to create an R package
@@ -216,10 +213,29 @@ Image source: `quadkeyr` documentation
 - Better code quality (i.e. tests, documentation)
 - Ensures computational reproducibility.
 
+## R package: `quadkeyr`
+
+
+::::{.columns}
+:::{.column width="70%" #vcenter}
+
+* [Documentation](https://docs.ropensci.org/quadkeyr/index.html)
+* [GitHub repository](https://github.com/ropensci/quadkeyr) 
+:::
+
+:::{.column width="30%" #vcenter}
+![](img/logo.png)
+:::
+:::
+
+:::footer
+D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identified datasets (Microsoft's Bing Maps Tile System) into raster images and analyzing Meta (Facebook) Mobility Data. R package version 0.1.0, 
+:::
+
+
 ## rOpenSci peer-review
 
 ::::{.columns}
-
 :::{.column width="70%"}
 **Scientific package review process**
   
@@ -229,10 +245,7 @@ Image source: `quadkeyr` documentation
 :::
 
 :::{.column width="30%"}
-
-
 ![](img/ropensci.svg)
-
 :::
 ::::
 
@@ -242,34 +255,13 @@ Image source: `quadkeyr` documentation
 ![](img/quadkeyr_joss.png)
 
 ::: footer
-https://github.com/ropensci/quadkeyr https://joss.theoj.org/papers/10.21105/joss.06500
+[`JOSS` article](https://joss.theoj.org/papers/10.21105/joss.06500)
 :::
 
 ## Variable
 
 `percent_change`
 
-## R package: `quadkeyr`
-
-
-::::{.columns}
-
-:::{.column width="70%"}
-
-D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identified datasets (Microsoft's Bing Maps Tile System) into raster images and analyzing Meta (Facebook) Mobility Data.. R package version 0.1.0, https://github.com/ropensci/quadkeyr, https://docs.ropensci.org/quadkeyr/. 
-
-:::
-
-:::{.column width="30%"}
-
-![](img/logo.png)
-
-:::
-:::
-
-:::footer
-[`quadkey` documentation](https://docs.ropensci.org/quadkeyr/index.html)
-:::
 
 ## Example 
 
@@ -280,9 +272,11 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 We managed to generate the raster to visualize citizen mobility on a map
 
+# Dashboard {background-color="#E5E4E2"}
+
 ## GeoCovidAR
 
-Integrate city mobility information with daily reported covid cases
+Integrate city mobility information with daily reported COVID-19 cases
 
 ## Tab 1
 
@@ -305,17 +299,36 @@ Generalidades
 ## Where is the project data?
 #### Website: GeoCovid Buenos Aires
 
-3 datasets 
 
-COVID-19
-rasters
+::::{.columns}
 
-## Overview del proyect
+:::{.column width="70%" #vcenter}
 
-R-Shiny app GeocovidApp
-`quadkeyr` R package
-website
-PostgreSQL database
+* [WebPage](https://fernandez-lab-wsu.github.io/geocovid_bsas/)
+
+:::
+
+:::{.column width="30%" #vcenter}
+![](img/geocovid_bsas_logo.png)
+:::
+:::
+
+
+# Overview {background-color="#E5E4E2"}
+
+## Overview
+
+**R package**. 
+- `quadkeyr` R package. 
+  
+**Dashboard**. 
+- R-Shiny app GeocovidApp. 
+  
+**Website**. 
+- Quarto Website. 
+  
+**Database**. 
+- PostgreSQL database. 
 
 ## Who I am?
 
@@ -352,26 +365,32 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 human behavior. 
 This determines the spatial distribution of cases and is essential
 to understand the dynamics of transmission.
-- Flexible tool daptable to future scenarios
+- Flexible tool adaptable to future scenarios
 
 ## Funding
 
-![](img/foresite.jpg)
 
-**CDC's Center for Forecasting and Outbreak Analytics.** 
-This project was made possible by cooperative agreement CDC-RFA-FT-23-0069 
-(grant # NU38FT000009-01-00) from the CDC's Center for 
-Forecasting and Outbreak Analytics.
+:::{layout-ncol=2}
+
+![](img/midas.jpg){width=200}
+
+![](img/wsu-logo.png){width=300}
+
+![](img/cdc.jpg){width=250}
+
+![](img/foresite.jpg){width=300}
+
+
+:::
+
+:::footer
+grant # NU38FT000009-01-00
 Its contents are solely the responsibility of the authors 
 and do not necessarily represent the official views of
 the Centers for Disease Control and Prevention.
-
-**MIDAS-NIH**  COVID-19 urgent grant program.
-
-Paul G. Allen School for Global Health, **Washington State University**.
+:::
 
 
-
-## Thank you!
+# Thank you!
 
 
