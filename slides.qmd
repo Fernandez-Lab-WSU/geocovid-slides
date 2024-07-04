@@ -32,22 +32,26 @@ Slides:
 <br>  
 
 ::: {.small-text}
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This material is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+:::
+
+:::footer
+[Click me! I am a link]()
 :::
 
 ## Disclaimer ⚠️
 
 
 :::: {.columns}
+:::{.column width="40%" #vcenter}
+This talk is about research software development
+
+:::
+
 :::{.column width="60%" #vcenter}
 ![](img/bettersoftware.png)
 :::
-
-:::{.column width="40%" #vcenter}
-This talk is about research software development
-:::
 :::: 
-
 
 ## Eco-epidemiology of Zoonotic Diseases Lab
 #### Washington State University 
@@ -71,7 +75,7 @@ that determines the emergence and persistence of zoonotic diseases.
 :::
 
 ## COVID-19
-#### Human behavioral component starts being recognized
+#### Human behavioral component is recognized as an influential factor in the dispersion of the virus
 
 :::: {.columns}
 
@@ -94,7 +98,7 @@ Image Source: [Clarin newspaper](https://www.clarin.com/ciudades/dia-semana-subt
 ## COVID-19
 #### Human behavioral component starts being recognized
 
-**Social, Preventive, and Obligatory isolation established by the Argentine government**
+**Isolation established by the Argentine government**
 
 - Phase 1: Strict isolation. 
 - Phase 2: Managed isolation. 
@@ -116,9 +120,9 @@ dmp.2021.90.)
 ## Objectives
 
 * Create a tool to map Facebook Mobility Data and monitor how decision making
-affects the distribution of COVID-19 cases in a community or city.
+affects the distribution of COVID-19 cases in the province of Buenos Aires, Argentina.
 
-* Quick overview to monitor decisions considering the spatial dynamics of data.   
+This tool will provide a quick overview of the situation to monitor decisions considering the spatial dynamics of data.   
 
 
 # Datasets {background-color="#E5E4E2"}
