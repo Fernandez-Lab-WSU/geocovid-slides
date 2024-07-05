@@ -389,7 +389,7 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <div class="columns">
 <div id="vcenter" class="column" style="width:60%;">
 <ul>
-<li class="fragment"><p>Map how <strong>human mobility changes in space</strong> depending on the decisions that were made and how that correlated with COVID-19 cases.</p></li>
+<li class="fragment"><p>Map how <strong>human mobility changes in space</strong> depending on the quarantine and how that correlated with COVID-19 cases.</p></li>
 <li class="fragment"><p>🇦🇷 Argentina ➡️ Strict quarantine</p></li>
 </ul>
 </div><div id="vcenter" class="column" style="width:40%;">
@@ -415,12 +415,26 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <p><a href="https://doi.org/10.1017/%20dmp.2021.90.">Ramírez ML, Martinez SM, Bessone CV, Allemandi DA, Quinteros DA. COVID-19: Epidemiological situation of Argentina and its neighbor countries after three months of pandemic. Disaster Med Public Health Prep.</a></p>
 </div>
 </section>
-<section id="how-do-people-move-in-the-city" class="slide level2">
-<h2>How do people move in the city?</h2>
+<section id="objectives" class="slide level2">
+<h2>Objectives 🎯</h2>
+<p>Create tools to <strong>map Facebook Mobility Data</strong> and monitor how decision-making affects the <strong>distribution of COVID-19 cases</strong> in the province of Buenos Aires, Argentina.</p>
+<ol type="1">
+<li class="fragment">A <strong>software package</strong> to convert citizen mobility data to raster images.</li>
+<li class="fragment">A <strong>dashboard</strong> to provide a quick overview, enabling the monitoring of decisions while considering the spatial dynamics of data.</li>
+</ol>
+</section>
+<section>
+<section id="what-data-can-we-use-to-analyze-citizen-mobility-in-the-territory" class="title-slide slide level1 center">
+<h1>What data can we use to analyze citizen mobility in the territory?</h1>
+
+</section>
+<section id="what-data-can-we-use-to-analyze-citizen-mobility-in-the-territory-1" class="slide level2">
+<h2>What data can we use to analyze citizen mobility in the territory?</h2>
+<p>Meta/Facebook Mobility Data is available to researchers through the <strong>Data4Good</strong> Partner Program</p>
 <div class="columns">
-<div id="vcenter" class="column" style="width:70%;">
-<p>Meta/Facebook Mobility Data</p>
-</div><div id="vcenter" class="column" style="width:30%;">
+<div id="vcenter" class="column" style="width:80%;">
+<p><img data-src="img/meta_webpage.png"></p>
+</div><div id="vcenter" class="column" style="width:20%;">
 <p><img data-src="img/metalogo.png"></p>
 </div>
 </div>
@@ -434,12 +448,11 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <div class="columns">
 <div id="vcenter" class="column" style="width:70%;">
 <ul>
-<li class="fragment"><p>Mobile devices with the Facebook app installed</p>
+<li class="fragment">Mobile devices with a Meta app installed
 <ul>
-<li class="fragment">Meta/Facebook users location <strong>Latitude and Longitude at a given time</strong>.</li>
+<li class="fragment">Meta/Facebook users location ➡️ <strong>latitude and longitude at a given time</strong>.</li>
 </ul></li>
-<li class="fragment"><p>The data is available to researchers (<strong>Data4Good</strong> Partner Program)</p></li>
-<li class="fragment"><p>Measures applied to the data to ensure <strong>privacy and anonymity</strong>.</p></li>
+<li class="fragment">Measures applied to the data to ensure <strong>privacy and anonymity</strong>.</li>
 </ul>
 </div><div id="vcenter" class="column" style="width:30%;">
 <p><img data-src="img/facebook.png"></p>
@@ -451,21 +464,14 @@ Eco-epidemiology of Zoonotic Diseases Lab
 </section>
 <section id="facebook-mobility-data-1" class="slide level2">
 <h2>Facebook Mobility Data</h2>
-<h4 id="how-do-you-convert-user-positions-into-a-map">How do you convert user positions into a map?</h4>
+<h4 id="what-data-do-researchers-receive">What data do researchers receive?</h4>
 <div class="columns">
 <div id="vcenter" class="column" style="width:60%;">
-<ul>
-<li class="fragment">Mapped using a <strong>Bing tile architecture</strong>
-<ul>
-<li class="fragment">Assigning users to individual tiles</li>
-</ul></li>
-<li class="fragment">Data is provided in 8-hour time periods. (Buenos Aires province (UTC-3))
-<ul>
-<li class="fragment">0hs - 8hs.</li>
-<li class="fragment">8hs - 16hs.</li>
-<li class="fragment">16hs - 0hs.</li>
-</ul></li>
-</ul>
+<ol type="1">
+<li class="fragment"><p>Mapped using a <strong>Bing tile architecture</strong> ➡️ users are assigned to individual tiles.</p></li>
+<li class="fragment"><p>Data is provided in <strong>8-hour time periods</strong> ( 0hs - 8hs / 8hs - 16hs / 16hs - 0hs ).</p></li>
+<li class="fragment"><p>Variable <code>percent_change</code>: relative change in mobility compared to a baseline period.</p></li>
+</ol>
 </div><div id="vcenter" class="column" style="width:40%;">
 <p><img data-src="img/tiles.jpg"></p>
 </div>
@@ -494,47 +500,51 @@ Eco-epidemiology of Zoonotic Diseases Lab
 </section>
 <section id="facebook-mobility-data-4" class="slide level2">
 <h2>Facebook Mobility Data</h2>
-<h4 id="from-quadkeys-to-raster-images-2">From QuadKeys to raster images</h4>
+<h4 id="from-a-quadkey-to-a-simple-features-dataframe">1. From a QuadKey to a <code>simple features</code> dataframe</h4>
+
+<img data-src="img/workflow_quadkey.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://docs.ropensci.org/quadkeyr/articles/quadkey_to_sf_conversion.html"><code>quadkeyr</code> documentation - Conversion</a></p>
+</div>
+</section>
+<section id="facebook-mobility-data-5" class="slide level2">
+<h2>Facebook Mobility Data</h2>
+<h6 id="generating-a-raster-image-from-quadkey-identified-data">2. Generating a Raster Image from Quadkey-Identified Data</h6>
+
+<img data-src="img/workflow_raster.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Source: <a href="https://docs.ropensci.org/quadkeyr/articles/quadkey_identified_data_to_raster.html"><code>quadkeyr</code> documentation - Raster creation</a></p>
+</div>
+</section>
+<section id="facebook-mobility-data-6" class="slide level2">
+<h2>Facebook Mobility Data</h2>
+<h4 id="converting-facebook-mobility-quadkey-identified-datasets-into-raster-files">3. Converting Facebook Mobility QuadKey-identified Datasets into Raster Files</h4>
 
 <img data-src="img/workflow_facebook.png" class="r-stretch quarto-figure-center"><div class="footer">
-<p>Image source: <a href="https://docs.ropensci.org/quadkeyr/"><code>quadkeyr</code> documentation</a></p>
+<p>Source: <a href="https://docs.ropensci.org/quadkeyr/articles/facebook_mobility_csvs_to_raster_files.html"><code>quadkeyr</code> documentation - Facebook Mobility Data</a></p>
 </div>
-</section>
-<section id="covid-19-data" class="slide level2">
-<h2>COVID-19 data</h2>
-<ul>
-<li class="fragment">Historical archive of COVID-19 cases</li>
-<li class="fragment">Public dataset</li>
-</ul>
-<div class="footer">
-<p>National Directorate of Epidemiology and Health Situation Analysis</p>
-</div>
-</section>
-<section id="objectives" class="slide level2">
-<h2>Objectives</h2>
-<p>Create tools to <strong>map Facebook Mobility Data</strong> and monitor how decision-making affects the <strong>distribution of COVID-19 cases</strong> in the province of Buenos Aires, Argentina.</p>
-<ol type="1">
-<li class="fragment">A software package to convert Facebook Mobility data to raster images</li>
-<li class="fragment">A dashboard to provide a <strong>quick overview of the situation</strong>, enabling the monitoring of decisions while considering the spatial dynamics of data.</li>
-</ol>
-</section>
+</section></section>
 <section>
-<section id="software-package" class="title-slide slide level1 center">
-<h1>1. Software package</h1>
+<section id="why-create-a-software-package" class="title-slide slide level1 center">
+<h1>Why create a software package?</h1>
 
 </section>
-<section id="why-create-a-software-package" class="slide level2">
+<section id="why-create-a-software-package-1" class="slide level2">
 <h2>Why create a software package?</h2>
 <ul>
 <li class="fragment">Makes it easier to reuse functions.</li>
 <li class="fragment">Improves code quality (i.g. tests, documentation).</li>
 <li class="fragment">Ensures computational reproducibility.</li>
 </ul>
+
+<img data-src="img/reasons-reproducibility.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p>Image source: <a href="https://book.the-turing-way.org/index.html">The Turing Way Handbook</a></p>
+</div>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
-<p><img data-src="img/CultureShift.jpg"> :::footer</p>
-<p>:::</p>
+
+<img data-src="img/openresearch.jpg" class="r-stretch quarto-figure-center"><div class="footer">
+<p><a href="http://doi.org/10.5281/zenodo.3695300">The Turing Way Community, &amp; Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes.</a></p>
+</div>
 </section>
 <section id="r-package-quadkeyr" class="slide level2">
 <h2>R package: <code>quadkeyr</code></h2>
@@ -545,7 +555,11 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <li class="fragment"><a href="https://github.com/ropensci/quadkeyr">GitHub repository</a></li>
 </ul>
 </div><div id="vcenter" class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/logo.png"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="footer">
@@ -555,37 +569,45 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <section id="ropensci-peer-review" class="slide level2">
 <h2>rOpenSci peer-review</h2>
 <div class="columns">
-<div class="column" style="width:70%;">
-<p><strong>transparent, constructive, non adversarial and open review process</strong></p>
+<div class="column" style="width:60%;">
+<p><strong>Transparent, constructive, non adversarial and open review process</strong></p>
 <ul>
 <li class="fragment"><a href="https://ropensci.org/software-review/">rOpenSci webpage</a>
 <ul>
 <li class="fragment"><a href="https://devguide.ropensci.org/preface.html">rOpenSci Packages: Development, Maintenance, and Peer Review</a></li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:30%;">
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/ropensci.svg"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 
-<img data-src="img/quadkeyr_joss.png" class="r-stretch"><div class="footer">
+<img data-src="img/quadkeyr_joss.png" class="r-stretch quarto-figure-center"><div class="footer">
 <p><a href="https://joss.theoj.org/papers/10.21105/joss.06500"><code>JOSS</code> article</a></p>
 </div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
 
-<img data-src="img/recognition.png" class="r-stretch"></section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<ul>
-<li class="fragment">We were not going to see the consequences of decisions immediately.</li>
-<li class="fragment">Non-permitted behaviors would be possible to detect.</li>
-</ul>
-</section></section>
+<img data-src="img/recognition.png" class="r-stretch quarto-figure-center"><div class="footer">
+<p><a href="http://doi.org/10.5281/zenodo.3695300">The Turing Way Community, &amp; Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes.</a></p>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="img/raster1.png" class="r-stretch quarto-figure-center"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+
+<img data-src="img/raster2.png" class="r-stretch quarto-figure-center"></section></section>
 <section id="raster-images-produced-with-quadkeyr-allow-to-visualize-citizen-mobility-on-a-map" class="title-slide slide level1 center" data-background-color="#E5E4E2">
 <h1>Raster images produced with <code>quadkeyr</code> allow to visualize citizen mobility on a map</h1>
 
@@ -598,27 +620,39 @@ Eco-epidemiology of Zoonotic Diseases Lab
 </section>
 <section id="geocovidar" class="slide level2">
 <h2>GeoCovidAR</h2>
+<div class="columns">
+<div id="vcenter" class="column" style="width:70%;">
 <p>Integrate city mobility information with daily reported COVID-19 cases</p>
+</div><div id="vcenter" class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/geocovid_logo.png"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="tab-1-general-exploration" class="slide level2">
 <h2>Tab 1: General exploration</h2>
 
-<img data-src="img/tab1.png" class="r-stretch"></section>
+<img data-src="img/tab1.png" class="r-stretch quarto-figure-center"></section>
 <section id="tab-2-departments" class="slide level2">
 <h2>Tab 2: Departments</h2>
 
-<img data-src="img/tab2.png" class="r-stretch"></section>
+<img data-src="img/tab2.png" class="r-stretch quarto-figure-center"></section>
 <section id="tab-2" class="slide level2">
 <h2>Tab 2</h2>
 <p>You can download a report</p>
 
-<img data-src="img/report.png" class="r-stretch"></section>
-<section id="tab-3-average-of" class="slide level2">
-<h2>Tab 3: Average of</h2>
+<img data-src="img/report.png" class="r-stretch quarto-figure-center"></section>
+<section id="tab-3-average-percent-change-by-department-and-covid-19-cases" class="slide level2">
+<h2>Tab 3: Average percent change by department and COVID-19 cases</h2>
 
-<img data-src="img/tab3.png" class="r-stretch"></section>
-<section id="geocovidar-app-integrates-covid-19-and-facebook-mobility-data" class="slide level2" data-background-color="#E5E4E2">
-<h2>GeoCovidAR App integrates COVID-19 and Facebook Mobility Data</h2>
+<img data-src="img/tab3.png" class="r-stretch"></section></section>
+<section>
+<section id="geocovidar-app-integrates-covid-19-and-facebook-mobility-data" class="title-slide slide level1 center" data-background-color="#E5E4E2">
+<h1><code>GeoCovidAR</code> App integrates COVID-19 and Facebook Mobility Data</h1>
+
 </section>
 <section id="where-lives-the-project-data" class="slide level2">
 <h2>Where lives the project data?</h2>
@@ -629,7 +663,11 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <li class="fragment"><a href="https://fernandez-lab-wsu.github.io/geocovid_bsas/">WebPage</a></li>
 </ul>
 </div><div id="vcenter" class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/geocovid_bsas_logo.png"></p>
+</figure>
+</div>
 </div>
 </div>
 </section></section>
@@ -645,7 +683,7 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <p><strong>Website</strong>. - Quarto Website.</p>
 <p><strong>Database</strong>. - PostgreSQL database.</p>
 </section>
-<section id="conclusions" class="slide level2" data-background-image="img/first_slide.png" data-background-size="100px" data-background-position="right">
+<section id="conclusions" class="slide level2" data-background-image="img/first_slide.png" data-background-size="80px" data-background-position="right">
 <h2>Conclusions</h2>
 <p>The spatial distribution of cases and the human behavioral component are essential to understand the dynamics of transmission.</p>
 <ul>
@@ -653,41 +691,56 @@ Eco-epidemiology of Zoonotic Diseases Lab
 <li class="fragment"><code>GeoCovidAR</code> enables the integration of ecological components with the complexity of human behavior.</li>
 </ul>
 </section>
-<section id="conclusions-1" class="slide level2" data-background-image="img/first_slide.png" data-background-size="100px" data-background-position="right">
+<section id="conclusions-1" class="slide level2" data-background-image="img/first_slide.png" data-background-size="80px" data-background-position="right">
 <h2>Conclusions</h2>
 <p><code>quadkeyr</code> and <code>GeoCovidAR</code> are flexible tools adaptable to different scenarios</p>
 
-<img data-src="img/dengue.png" class="r-stretch"><div class="footer">
+<img data-src="img/dengue.png" class="r-stretch quarto-figure-center"><div class="footer">
 <p><a href="https://www.batimes.com.ar/news/argentina/dengue-fever-cases-in-argentina-up-2153-so-far-in-2024.phtml">Complete article here!</a></p>
 </div>
 </section>
 <section id="funding" class="slide level2">
 <h2>Funding</h2>
-<div class="quarto-layout-panel">
+<div id="vcenter" class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 44.4%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/midas.jpg" width="200"></p>
+</figure>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
-<p><img data-src="img/wsu-logo.png" width="300"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 55.6%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cdc.jpg" width="250"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
-<p><img data-src="img/cdc.jpg" width="250"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 54.5%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="img/foresite.jpg" width="300"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wsu-logo.png" width="300"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 <div class="footer">
-<p>Its contents are solely the responsibility of the authors and do not necessarily represent the official views of the Centers for Disease Control and Prevention.</p>
+<p>The contents are responsibility of the authors and do not necessarily represent the official views of the Centers for Disease Control and Prevention.</p>
 </div>
 </section>
-<section id="who-i-am" class="slide level2">
-<h2>Who I am?</h2>
-<h4 id="contact">Contact</h4>
+<section id="contact" class="slide level2">
+<h2>Contact</h2>
 <div class="columns">
 <div id="vcenter" class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
@@ -700,13 +753,16 @@ Eco-epidemiology of Zoonotic Diseases Lab
 </div>
 </div>
 </div><div id="vcenter" class="column" style="width:60%;">
-<p>🐦 <strong>Twitter</strong><br>
+<p>🐦 <strong>X/Twitter</strong><br>
 <a href="http://twitter.com/cantoflor_87"><span class="citation" data-cites="cantoflor_87">@cantoflor_87</span></a><br></p>
 <p>📢 <strong>Mastodon</strong></p>
 <p><a href="https://techhub.social/@florencia"><span class="citation" data-cites="florencia">@florencia</span><span class="citation" data-cites="techhub.social">@techhub.social</span></a></p>
 <p>🌐 <strong>LinkedIn</strong></p>
 <p><a href="https://www.linkedin.com/in/florenciadandrea/">www.linkedin.com/in/florenciadandrea/</a></p>
 </div>
+</div>
+<div class="footer">
+<p>Slides talk: <a href="https://flor14.github.io/wsu-dandrea/slides.html#/title-slide">From research software engineering to data science: how technology will impact the way we research</a></p>
 </div>
 </section></section>
 <section id="thank-you" class="title-slide slide level1 center">

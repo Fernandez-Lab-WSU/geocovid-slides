@@ -81,7 +81,7 @@ that determines the emergence and persistence of zoonotic diseases.
 
 :::{.column width="60%" #vcenter}
 - Map how **human mobility changes in space** depending on
-the decisions that were made and how that correlated with COVID-19 cases.
+the quarantine and how that correlated with COVID-19 cases.
 
 - 🇦🇷 Argentina ➡️ Strict quarantine
 :::
@@ -116,21 +116,32 @@ Health Prep.](https://doi.org/10.1017/
 dmp.2021.90.)
 :::
 
+## Objectives 🎯
+
+Create tools to **map Facebook Mobility Data** and monitor how decision-making
+affects the **distribution of COVID-19 cases** in the province of Buenos Aires, Argentina.
+
+1. A **software package** to convert citizen mobility data to raster images. 
+2. A **dashboard** to provide a quick overview,
+enabling the monitoring of decisions while considering the spatial dynamics of data.   
 
 
+# What data can we use to analyze citizen mobility in the territory?
 
+## What data can we use to analyze citizen mobility in the territory?
 
-## How do people move in the city?
+Meta/Facebook Mobility Data is available to researchers through the **Data4Good** Partner Program
 
 ::::{.columns}
 
-:::{.column width="70%" #vcenter}
-Meta/Facebook Mobility Data 
+:::{.column width="80%" #vcenter}
+
+![](img/meta_webpage.png)
 
  
 :::
 
-:::{.column width="30%" #vcenter}
+:::{.column width="20%" #vcenter}
 ![](img/metalogo.png)
 :::
 ::::
@@ -145,13 +156,11 @@ Meta/Facebook Mobility Data
 ::::{.columns}
 
 :::{.column width="70%" #vcenter}
-- Mobile devices with the Facebook app installed 
-   - Meta/Facebook users location
-   **Latitude and Longitude at a given time**.
+- Mobile devices with a Meta app installed 
+   - Meta/Facebook users location ➡️
+   **latitude and longitude at a given time**.
    
    
-- The data is available to researchers (**Data4Good** Partner Program)
-
 - Measures applied to the data to ensure **privacy and anonymity**.
 
 
@@ -170,20 +179,17 @@ Meta/Facebook Mobility Data
 :::
 
 ## Facebook Mobility Data
-#### How do you convert user positions into a map?
+#### What data do researchers receive?
 
 ::::{.columns}
 
 :::{.column width="60%" #vcenter}
 
-- Mapped using a **Bing tile architecture**
-  - Assigning users to individual tiles
+1. Mapped using a **Bing tile architecture** ➡️ users are assigned to individual tiles. 
   
-- Data is provided in 8-hour time periods.
-(Buenos Aires province (UTC-3))
-  - 0hs - 8hs. 
-  - 8hs - 16hs. 
-  - 16hs - 0hs. 
+2. Data is provided in **8-hour time periods** ( 0hs - 8hs / 8hs - 16hs / 16hs - 0hs ).    
+  
+3. Variable `percent_change`: relative change in mobility compared to a baseline period. 
 
 :::
 
@@ -226,36 +232,32 @@ spatial position as a sequence of characters.
 [`quadkeyr` documentation](https://docs.ropensci.org/quadkeyr/)
 :::
 
+## Facebook Mobility Data
+#### 1. From a QuadKey to a `simple features` dataframe
+![](img/workflow_quadkey.png){fig-align="center"}
 
+:::footer
+Source: [`quadkeyr` documentation - Conversion](https://docs.ropensci.org/quadkeyr/articles/quadkey_to_sf_conversion.html)
+::: 
 
 ## Facebook Mobility Data
-#### From QuadKeys to raster images
+###### 2. Generating a Raster Image from Quadkey-Identified Data
+![](img/workflow_raster.png){fig-align="center"}
+
+
+:::footer
+Source: [`quadkeyr` documentation - Raster creation](https://docs.ropensci.org/quadkeyr/articles/quadkey_identified_data_to_raster.html)
+::: 
+
+## Facebook Mobility Data
+#### 3. Converting Facebook Mobility QuadKey-identified Datasets into Raster Files
 ![](img/workflow_facebook.png){fig-align="center"}
 
 :::footer
-Image source: [`quadkeyr` documentation](https://docs.ropensci.org/quadkeyr/)
+Source: [`quadkeyr` documentation - Facebook Mobility Data](https://docs.ropensci.org/quadkeyr/articles/facebook_mobility_csvs_to_raster_files.html)
 ::: 
 
-## COVID-19 data
-
-
-- Historical archive of COVID-19 cases
-- Public dataset
-
-:::footer
-National Directorate of Epidemiology and Health Situation Analysis
-:::
-
-## Objectives
-
-Create tools to **map Facebook Mobility Data** and monitor how decision-making
-affects the **distribution of COVID-19 cases** in the province of Buenos Aires, Argentina.
-
-1. A software package to convert Facebook Mobility data to raster images
-2. A dashboard to provide a **quick overview of the situation**,
-enabling the monitoring of decisions while considering the spatial dynamics of data.   
-
-# 1. Software package
+# Why create a software package?
 
 ## Why create a software package?
 
@@ -263,11 +265,18 @@ enabling the monitoring of decisions while considering the spatial dynamics of d
 - Improves code quality (i.g. tests, documentation). 
 - Ensures computational reproducibility.
 
+![](img/reasons-reproducibility.png){fig-align="center"}
+
+:::footer
+Image source: [The Turing Way Handbook](https://book.the-turing-way.org/index.html)
+:::
+
 ##
 
-![](img/CultureShift.jpg)
-:::footer
+![](img/openresearch.jpg){fig-align="center"}
 
+:::footer
+[The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes.](http://doi.org/10.5281/zenodo.3695300)
 :::
 
 ## R package: `quadkeyr`
@@ -281,7 +290,7 @@ enabling the monitoring of decisions while considering the spatial dynamics of d
 :::
 
 :::{.column width="30%" #vcenter}
-![](img/logo.png)
+![](img/logo.png){fig-align="center"}
 :::
 :::
 
@@ -293,8 +302,8 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 ## rOpenSci peer-review
 
 ::::{.columns}
-:::{.column width="70%"}
-**transparent, constructive, non adversarial and open review process**
+:::{.column width="60%"}
+**Transparent, constructive, non adversarial and open review process**
 
   
 - [rOpenSci webpage](https://ropensci.org/software-review/)
@@ -302,15 +311,15 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 :::
 
-:::{.column width="30%"}
-![](img/ropensci.svg)
+:::{.column width="40%"}
+![](img/ropensci.svg){fig-align="center"}
 :::
 ::::
 
 
 ## 
 
-![](img/quadkeyr_joss.png)
+![](img/quadkeyr_joss.png){fig-align="center"}
 
 ::: footer
 [`JOSS` article](https://joss.theoj.org/papers/10.21105/joss.06500)
@@ -318,15 +327,21 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 ##
 
-![](img/recognition.png)
+![](img/recognition.png){fig-align="center"}
+  
+:::footer
+[The Turing Way Community, & Scriberia. (2020, March 3). Illustrations from the Turing Way book dashes.](http://doi.org/10.5281/zenodo.3695300)
+:::
 
 
+## 
 
-## Example 
+![](img/raster1.png){fig-align="center"}
 
-- We were not going to see the consequences of decisions immediately.
-- Non-permitted behaviors would be possible to detect. 
 
+## 
+
+![](img/raster2.png){fig-align="center"}
 
 
 # Raster images produced with `quadkeyr` allow to visualize citizen mobility on a map {background-color="#E5E4E2"}
@@ -335,26 +350,39 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 ## GeoCovidAR
 
+:::: {.columns}
+:::{.column width="70%" #vcenter}
+
 Integrate city mobility information with daily reported COVID-19 cases
+
+
+:::
+
+:::{.column width="30%" #vcenter}
+![](img/geocovid_logo.png){fig-align="center"}
+
+
+:::
+::::
 
 ## Tab 1: General exploration
 
-![](img/tab1.png)
+![](img/tab1.png){fig-align="center"}
 
 ## Tab 2: Departments
 
-![](img/tab2.png)
+![](img/tab2.png){fig-align="center"}
 
 ## Tab 2
 You can download a report
 
-![](img/report.png)
+![](img/report.png){fig-align="center"}
 
-## Tab 3: Average of 
+## Tab 3: Average percent change by department and COVID-19 cases
 ![](img/tab3.png)
 
 
-## GeoCovidAR App integrates COVID-19 and Facebook Mobility Data {background-color="#E5E4E2"}
+# `GeoCovidAR` App integrates COVID-19 and Facebook Mobility Data {background-color="#E5E4E2"}
 
 
 ## Where lives the project data?
@@ -370,7 +398,7 @@ You can download a report
 :::
 
 :::{.column width="30%" #vcenter}
-![](img/geocovid_bsas_logo.png)
+![](img/geocovid_bsas_logo.png){fig-align="center"}
 :::
 :::
 
@@ -393,7 +421,7 @@ You can download a report
 
 
 
-## Conclusions {background-image="img/first_slide.png" background-size="100px" background-position='right'}
+## Conclusions {background-image="img/first_slide.png" background-size="80px" background-position='right'}
 
 The spatial distribution of cases and the human behavioral component
 are essential to understand the dynamics of transmission.
@@ -403,11 +431,11 @@ are essential to understand the dynamics of transmission.
 with the complexity of human behavior.
 
 
-## Conclusions {background-image="img/first_slide.png" background-size="100px" background-position='right'}
+## Conclusions {background-image="img/first_slide.png" background-size="80px" background-position='right' }
 
  `quadkeyr` and `GeoCovidAR` are flexible tools adaptable to different scenarios
 
-![](img/dengue.png)
+![](img/dengue.png){fig-align="center"}
   
 :::footer
   
@@ -418,28 +446,29 @@ with the complexity of human behavior.
 ## Funding
 
 
-:::{layout-ncol=2}
+:::{layout-ncol=2 #vcenter}
 
-![](img/midas.jpg){width=200}
+![](img/midas.jpg){width=200 fig-align="center"}
 
-![](img/wsu-logo.png){width=300}
 
-![](img/cdc.jpg){width=250}
+![](img/cdc.jpg){width=250 fig-align="center"}
 
-![](img/foresite.jpg){width=300}
 
+
+
+![](img/foresite.jpg){width=300 fig-align="center"}
+
+![](img/wsu-logo.png){width=300 fig-align="center"}
 
 :::
 
 :::footer
-Its contents are solely the responsibility of the authors 
+The contents are responsibility of the authors 
 and do not necessarily represent the official views of
 the Centers for Disease Control and Prevention.
 :::
 
-## Who I am?
-
-#### Contact
+## Contact
 
 :::: {.columns}
 :::{.column width="40%" #vcenter}
@@ -450,7 +479,7 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 :::
 
 :::{.column width="60%" #vcenter}
-🐦 **Twitter**   
+🐦 **X/Twitter**   
 [@cantoflor_87](http://twitter.com/cantoflor_87)<br>
 
 📢 **Mastodon** 
@@ -463,6 +492,10 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 
 :::
 :::: 
+
+:::footer
+Slides talk: [From research software engineering to data science: how technology will impact the way we research](https://flor14.github.io/wsu-dandrea/slides.html#/title-slide)
+:::
 
 # Thank you!
 
