@@ -294,7 +294,8 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 ::::{.columns}
 :::{.column width="70%"}
-**Scientific package review process**
+**transparent, constructive, non adversarial and open review process**
+
   
 - [rOpenSci webpage](https://ropensci.org/software-review/)
   - [rOpenSci Packages: Development, Maintenance, and Peer Review](https://devguide.ropensci.org/preface.html)
@@ -347,15 +348,16 @@ Integrate city mobility information with daily reported COVID-19 cases
 ## Tab 2
 You can download a report
 
+![](img/report.png)
+
 ## Tab 3: Average of 
 ![](img/tab3.png)
 
 
-## Conclusions
+## GeoCovidAR App integrates COVID-19 and Facebook Mobility Data {background-color="#E5E4E2"}
 
-- GeoCovidAR App integrates COVID-19 and Facebook Mobility Data
 
-## Where is the project data?
+## Where lives the project data?
 #### Website: GeoCovid Buenos Aires
 
 
@@ -391,23 +393,26 @@ You can download a report
 
 
 
-## Conclusions
+## Conclusions {background-image="img/first_slide.png" background-size="100px" background-position='right'}
 
-The spatial distribution of cases is essential
-to understand the dynamics of transmission.
+The spatial distribution of cases and the human behavioral component
+are essential to understand the dynamics of transmission.
 
 - `quadkeyr` allows for converting Facebook mobility data into raster images.
 - `GeoCovidAR` enables the integration of ecological components 
 with the complexity of human behavior.
 
 
-## Conclusions
+## Conclusions {background-image="img/first_slide.png" background-size="100px" background-position='right'}
 
  `quadkeyr` and `GeoCovidAR` are flexible tools adaptable to different scenarios
 
 ![](img/dengue.png)
+  
 :::footer
+  
 [Complete article here!](https://www.batimes.com.ar/news/argentina/dengue-fever-cases-in-argentina-up-2153-so-far-in-2024.phtml)
+  
 :::
 
 ## Funding
@@ -454,7 +459,7 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 
 🌐 **LinkedIn** 
 
-[https://www.linkedin.com/in/florenciadandrea/](https://www.linkedin.com/in/florenciadandrea/)
+[www.linkedin.com/in/florenciadandrea/](https://www.linkedin.com/in/florenciadandrea/)
 
 :::
 :::: 
