@@ -75,7 +75,7 @@ that determines the emergence and persistence of zoonotic diseases.
 :::
 
 ## COVID-19
-#### Human behavioral component is recognized as an influential factor in the dispersion of the virus
+#### The human behavioral component is recognized as an influential factor in virus dispersion
 
 :::: {.columns}
 
@@ -96,7 +96,7 @@ Image Source: [Clarin newspaper](https://www.clarin.com/ciudades/dia-semana-subt
 :::
 
 ## COVID-19
-#### Human behavioral component starts being recognized
+#### The human behavioral component is recognized as an influential factor in virus dispersion
 
 **Isolation established by the Argentine government**
 
@@ -117,59 +117,73 @@ dmp.2021.90.)
 :::
 
 
-## Objectives
-
-* Create a tool to map Facebook Mobility Data and monitor how decision making
-affects the distribution of COVID-19 cases in the province of Buenos Aires, Argentina.
-
-This tool will provide a quick overview of the situation to monitor decisions considering the spatial dynamics of data.   
 
 
-# Datasets {background-color="#E5E4E2"}
 
-## Facebook Mobility Data
+## How do people move in the city?
 
 ::::{.columns}
 
 :::{.column width="70%" #vcenter}
-- Meta/Facebook users location
-   - Mobile devices with the Facebook app installed 
-   - **Lat and Long at a given time**.
+Meta/Facebook Mobility Data 
 
-- Measures applied to the data to ensure privacy and anonymity.
+ 
+:::
 
-- The data is available to researchers by application to the Facebook
-Data4Good Partner Program
+:::{.column width="30%" #vcenter}
+![](img/metalogo.png)
+:::
+::::
+
+:::footer
+[`data4Good` WebPage](https://dataforgood.facebook.com/)
+:::
+
+## Facebook Mobility Data
+#### How is the data obtained?
+
+::::{.columns}
+
+:::{.column width="70%" #vcenter}
+- Mobile devices with the Facebook app installed 
+   - Meta/Facebook users location
+   **Latitude and Longitude at a given time**.
+   
+   
+- The data is available to researchers (**Data4Good** Partner Program)
+
+- Measures applied to the data to ensure **privacy and anonymity**.
+
 
  
 :::
 
 :::{.column width="30%" #vcenter}
 
-![](img/metalogo.png)
+![](img/facebook.png)
 
 :::
 ::::
 
 :::footer
-[Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system)
+[`data4Good` WebPage](https://dataforgood.facebook.com/)
 :::
 
 ## Facebook Mobility Data
+#### How do you convert user positions into a map?
 
 ::::{.columns}
 
 :::{.column width="60%" #vcenter}
 
-- Daily data - 8hs time period
-Buenos Aires province (UTC-3)
-
+- Mapped using a **Bing tile architecture**
+  - Assigning users to individual tiles
+  
+- Data is provided in 8-hour time periods.
+(Buenos Aires province (UTC-3))
   - 0hs - 8hs. 
   - 8hs - 16hs. 
   - 16hs - 0hs. 
-
-- Mapped using a Bing tile architecture
-  - Assigning users to individual tiles
 
 :::
 
@@ -180,9 +194,47 @@ Buenos Aires province (UTC-3)
 :::
 :::
 
+
 :::footer
-[`data4Good` WebPage](https://dataforgood.facebook.com/)
+[Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system)
 :::
+
+
+## Facebook Mobility Data
+#### From QuadKeys to raster images
+
+The **tiles** can have different sizes,
+producing maps with varying level of detail.
+
+
+![](img/bing_quadkeys.jpg){fig-align="center"}
+
+**QuadKeys** represent a location on a map by encoding its hierarchical 
+spatial position as a sequence of characters.
+
+:::footer
+[Bing Maps Tile System](https://learn.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system)
+:::
+
+## Facebook Mobility Data
+#### From QuadKeys to raster images
+
+![](img/quadkey_to_raster.png){fig-align="center"}
+
+
+:::footer
+[`quadkeyr` documentation](https://docs.ropensci.org/quadkeyr/)
+:::
+
+
+
+## Facebook Mobility Data
+#### From QuadKeys to raster images
+![](img/workflow_facebook.png){fig-align="center"}
+
+:::footer
+Image source: [`quadkeyr` documentation](https://docs.ropensci.org/quadkeyr/)
+::: 
 
 ## COVID-19 data
 
@@ -194,31 +246,16 @@ Buenos Aires province (UTC-3)
 National Directorate of Epidemiology and Health Situation Analysis
 :::
 
+## Objectives
 
+Create tools to **map Facebook Mobility Data** and monitor how decision-making
+affects the **distribution of COVID-19 cases** in the province of Buenos Aires, Argentina.
 
-## Facebook Mobility Data
-#### From QuadKeys to raster images
+1. A software package to convert Facebook Mobility data to raster images
+2. A dashboard to provide a **quick overview of the situation**,
+enabling the monitoring of decisions while considering the spatial dynamics of data.   
 
-**QuadKeys** represent a location on a map by encoding its hierarchical 
-spatial position as a sequence of characters.
-
-![](img/quadkey_to_raster.png){fig-align="center"}
-
-## Facebook Mobility Data
-#### From QuadKeys to raster images
-
-The **tiles** can have different sizes,
-producing maps with more or less level of detail.
-
-![](img/bing_quadkeys.jpg){fig-align="center"}
-
-## Facebook Mobility Data
-#### From QuadKeys to raster images
-![](img/workflow_facebook.png){fig-align="center"}
-
-:::footer
-Image source: `quadkeyr` documentation
-::: 
+# 1. Software package
 
 ## Why create a software package?
 
