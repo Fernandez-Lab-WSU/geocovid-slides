@@ -232,6 +232,8 @@ spatial position as a sequence of characters.
 [`quadkeyr` documentation](https://docs.ropensci.org/quadkeyr/)
 :::
 
+# 1 - Software package {background-color="#495D63"}
+
 ## Facebook Mobility Data
 #### 1. From a QuadKey to a `simple features` dataframe
 ![](img/workflow_quadkey.png){fig-align="center"}
@@ -257,7 +259,7 @@ Source: [`quadkeyr` documentation - Raster creation](https://docs.ropensci.org/q
 Source: [`quadkeyr` documentation - Facebook Mobility Data](https://docs.ropensci.org/quadkeyr/articles/facebook_mobility_csvs_to_raster_files.html)
 ::: 
 
-# Why create a software package?
+
 
 ## Why create a software package?
 
@@ -346,7 +348,7 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 
 # Raster images produced with `quadkeyr` allow to visualize citizen mobility on a map {background-color="#E5E4E2"}
 
-# Dashboard {background-color="#E5E4E2"}
+# 2 - Dashboard {background-color="#495D63"}
 
 ## GeoCovidAR
 
@@ -421,7 +423,7 @@ You can download a report
 
 
 
-## Conclusions {background-image="img/first_slide.png" background-size="80px" background-position='right'}
+## Conclusions {background-image="img/first_slide.png" background-size="70px" background-position='right'}
 
 The spatial distribution of cases and the human behavioral component
 are essential to understand the dynamics of transmission.
@@ -431,7 +433,7 @@ are essential to understand the dynamics of transmission.
 with the complexity of human behavior.
 
 
-## Conclusions {background-image="img/first_slide.png" background-size="80px" background-position='right' }
+## Conclusions {background-image="img/first_slide.png" background-size="70px" background-position='right' }
 
  `quadkeyr` and `GeoCovidAR` are flexible tools adaptable to different scenarios
 
@@ -468,7 +470,7 @@ and do not necessarily represent the official views of
 the Centers for Disease Control and Prevention.
 :::
 
-## Contact
+## Dr. Florencia D'Andrea
 
 :::: {.columns}
 :::{.column width="40%" #vcenter}
@@ -494,10 +496,12 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 :::: 
 
 :::footer
-Slides talk: [From research software engineering to data science: how technology will impact the way we research](https://flor14.github.io/wsu-dandrea/slides.html#/title-slide)
+Slides: [From research software engineering to data science: how technology will impact the way we research](https://flor14.github.io/wsu-dandrea/slides.html#/title-slide)
 :::
 
-# Thank you!
+##
+
+![](img/thanks.png){width=600 fig-align="center"}
 
 :::footer
 [https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html](https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html)
