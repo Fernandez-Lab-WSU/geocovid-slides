@@ -118,7 +118,7 @@ dmp.2021.90.)
 
 ## Objectives 🎯
 
-Create tools to **map Facebook Mobility Data** and monitor how decision-making
+Create tools to **map citizen mobility** and monitor how decision-making
 affects the **distribution of COVID-19 cases** in the province of Buenos Aires, Argentina.
 
 1. A **software package** to convert citizen mobility data to raster images. 
@@ -346,7 +346,7 @@ D'Andrea F, Fernandez P (2024). quadkeyr: Tools for converting QuadKey-identifie
 ![](img/raster2.png){fig-align="center"}
 
 
-# Raster images produced with `quadkeyr` allow to visualize citizen mobility on a map {background-color="#E5E4E2"}
+# Raster images produced with `quadkeyr` allow to visualize Facebook Moility Data on a map {background-color="#E5E4E2"}
 
 # 2 - Dashboard {background-color="#495D63"}
 
@@ -471,6 +471,7 @@ the Centers for Disease Control and Prevention.
 :::
 
 ## Dr. Florencia D'Andrea
+Designing software tools and visualizations to help solve research problems
 
 :::: {.columns}
 :::{.column width="40%" #vcenter}
@@ -499,9 +500,7 @@ knitr::include_graphics("https://res.cloudinary.com/flor/image/upload/w_1000,ar_
 Slides: [From research software engineering to data science: how technology will impact the way we research](https://flor14.github.io/wsu-dandrea/slides.html#/title-slide)
 :::
 
-##
-
-![](img/thanks.png){width=600 fig-align="center"}
+# Thank you!
 
 :::footer
 [https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html](https://fernandez-lab-wsu.github.io/geocovid-slides/slides.html)
